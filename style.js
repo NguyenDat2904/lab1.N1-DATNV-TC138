@@ -8,14 +8,24 @@ for (let i = 0; i < num.length; i++) {
 console.log("Bình phương các số của mảng num: " + tich);
 
 // tim so nguyen to
-let num2 = [3, 5, 6, 6, 7, 8, 8, 8, 9, 33];
+let num2 = [3, 5, 6, 6, 7, 8, 8, 8, 9, 33,2,1,3,2,17];
 let nguyenTo = [];
 for (let i = 0; i < num2.length; i++) {
-  for (let j = 2; j <= Math.sqrt(num2[i]); j++) {
-    if (num2[i] % j != 0) {
-      nguyenTo.push(num2[i]);
+let isPrime = true;
+  if (num2[i] < 2) {
+    isPrime = false;
+  } else {
+    for (let j = 2; j <= Math.sqrt(num2[i]); j++) {
+      if (num2[i] % j === 0) {
+        isPrime = false;
+        break;
+      }
     }
   }
+  if (isPrime) {
+    nguyenTo.push(num2[i]);
+  }
+  
 }
 console.log("------------------------------------");
 console.log("Các số nguyên tố: " + nguyenTo);
@@ -81,7 +91,7 @@ for (let i = 0; i < cart.length; i++) {
   
 }
 let index = Number(prompt("Nhập STT cần sửa:"));
-for(var i = 0; i < cart.length; i++) {
+for(let i = 0; i < cart.length; i++) {
     if (index === i + 1) {
     let updateOutOfDate = prompt("Nhập ngày cần sửa: ");
     cart[i].outOfdate = updateOutOfDate;
